@@ -1,4 +1,3 @@
-// src/components/Controller.jsx
 import useMusicPlayer from "../hooks/useMusicPlayer";
 
 const Controller = () => {
@@ -11,12 +10,31 @@ const Controller = () => {
   } = useMusicPlayer();
 
   return (
-    <div className="controller">
-      <h2>Controller</h2>
-      <button onClick={playPreviousTrack}>⏮ Prev</button>
-      <button onClick={togglePlay}>{isPlaying ? "⏸ Pause" : "▶️ Play"}</button>
-      <button onClick={playNextTrack}>Next ⏭</button>
-      <p>Current: {currentTrackName || "None"}</p>
+    <div>
+      <h2 className="text-2xl font-semibold mb-4">Controller</h2>
+      <div className="flex gap-4">
+        <button
+          onClick={playPreviousTrack}
+          className="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg"
+        >
+          ⏮ Prev
+        </button>
+        <button
+          onClick={togglePlay}
+          className="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg"
+        >
+          {isPlaying ? "⏸ Pause" : "▶️ Play"}
+        </button>
+        <button
+          onClick={playNextTrack}
+          className="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg"
+        >
+          Next ⏭
+        </button>
+      </div>
+      <p className="mt-4 text-sm text-gray-400">
+        Current: {currentTrackName || "None"}
+      </p>
     </div>
   );
 };
